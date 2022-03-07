@@ -2,6 +2,8 @@
 
 class Player:
     def __init__(self):
-        self.gestures = [2]
+
+
+        self.gestures = ['rock, paper, scissors, lizard, spock']
         
-# ['rock, paper, scissors, lizard, spock']
+
