@@ -18,15 +18,7 @@ class Battlefield:
 
     def battle(self):
         while len(self.herd.dinosaurs) > 0 and len(self.fleet.robots) > 0:
-            dice_roll = random.randint(1, 10)
-            if dice_roll % 2 == 0:
-                self.dino_turn()
-                if len(self.fleet.robots) > 0:
-                    self.robo_turn()
-            else:
-                self.robo_turn()
-                if len(self.herd.dinosaurs) > 0:
-                    self.dino_turn()
+            Player.turn
 
     def dino_turn(self):
         self.show_dino_opponent_options()
@@ -72,7 +64,7 @@ class Battlefield:
 
     def display_winners(self):
         # battle ends and winner declared when HP is zero for all of one side
-        if len(self.fleet.robots) > len(self.herd.dinosaurs):
+        if player1.score  len(self.herd.dinosaurs):
             print('Robots win!!!!!')
         else:
             print('Dinosaurs win!!!!!!!!!')
