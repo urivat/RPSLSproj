@@ -1,43 +1,38 @@
 
 
-from ai import Ai
+from player import Player
 from human import Human
 
-
 class Game:
-    def __init__(self): 
+    def __init__(self):
+        self.player = Player()
         self.human = Human()
-        self.ai = Ai()
+
+
+
+
     def run_game(self):
-        self.display_greeting
-        self.game_zone
-        
+        self.display_welcome()
+        self.display_gesture_options()
 
-    
-    def game_zone():
-        pass
-    
-    
-    def player_turn(self):
-        pass
-    
 
-    def display_greeting(self):
-        pass
-    
-    def display_rule(self):
-        pass
-    
-    def pick_player_amount():
-        pass
+    def play_ground(self):
+        pass # rules of the game
 
-    def display_gesture_options(self, ai):
-        pass
-
-    def show_player_options(self, gestures):
-        print('Choose your gesture')
+    def display_gesture_options(self):
         index = 0
-        for gesture in self.gestures:
+        for selection in self.player.list_of_gestures:
             print(
-                f'Press {index} for {}')
+                f'Press {index} for {selection}')
             index += 1
+
+    def select_multiplayer(self):
+        pass
+
+    def select_auto_play(self):
+        pass
+    
+    def display_welcome(self):
+        print('This is a different take of the classic rock, paper, scissors' 
+        ' welcome to the RPSLS.')
+    
