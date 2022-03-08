@@ -5,19 +5,33 @@ from human import Human
 
 class Game:
     def __init__(self):
-        self.player1 = Human()
-        self.player2 = Human()
+        self.player1 = Ai()
+        self.player2 = Ai()
         
 
 
 
     def run_game(self):
-        self.display_welcome()    # choose number of players
+        self.display_welcome() 
+        self.single_or_multiplayer()
         self.display_gesture_options()        
         self.play_ground() 
-                   # single player is you vs the ai and multiplayer is you vs another player.
+        self.battle()
+        self.play_again()                                     # choose number of players
+                               # single player is you vs the ai and multiplayer is you vs another player.
         
         
+        
+    def play_again(self):
+        while True:
+            another_round = input('would you like to go again:  ')
+            if another_round == 'y ':
+                self.run_game             
+            else:
+                break
+            
+
+
 
     def display_gesture_options(self):
         index = 0
@@ -30,9 +44,7 @@ class Game:
 
             
         
-    def player_turn(self):
-        self.display_gesture_options
-        self.player1.chosen_gesture      
+       
 
                 # tie
                  # rules of the game
@@ -49,10 +61,12 @@ class Game:
 
     def battle(self):
         while True:
-            if self.player1.score < 2 and self.player2.score < 2:   
-                self.play_ground()
+            if self.player1.score == 2 or self.player2.score == 2:   
+                self.display_winner()
+                break
             else:    
-                self.display_winner
+                self.play_ground()
+            
             
                
     def play_ground(self):
@@ -96,9 +110,9 @@ class Game:
             print("Player 2 wins round")
             self.player2.score +=1
             
-        another_round = input('would you like to go again:  ')
-        if another_round.upper == 'y':     
-            self.battle() 
+        
+            
+            
                  
             
 
@@ -109,6 +123,20 @@ class Game:
         elif self.player2.score == 2:
             print('Player 2 win!!!!!!!!!')
 
+    def single_or_multiplayer(self):
+        player_choice = input("Would you like to play multiplayer? Enter Y/N:  ")
+        if player_choice.upper == "y":
+            self.player2 = Human()
+        else:
+            self.player2 = Ai()
+        
+	    
+   
+   
+   
+  
+    
+   
     # def play_ground(self):
     #     self.player1.pick_a_gesture()
     #     self.player2.pick_a_gesture() 
